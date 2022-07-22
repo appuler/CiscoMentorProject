@@ -9,7 +9,7 @@ class Edge:
         return f'{self.start}->{self.end}'
 
     def __repr__(self):
-        return f'Edge[{self.start}->{self.end}][{self.label}]'
+        return f'Edge[({self.start}->{self.end})({self.label})]'
 
     def __ge__(self, other):
         pass

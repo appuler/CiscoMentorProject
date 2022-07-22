@@ -2,7 +2,7 @@ import graphviz
 import pydotplus
 
 
-class AdjacencyList:
+class Graph:
     def __init__(self, nodes, edges):
         self.nodes = nodes
         self.edges = edges

@@ -29,7 +29,7 @@ def create_edge_list(graph):
 def main():
     nodes = create_node_list(base_graph)
     edges = create_edge_list(base_graph)
-    adjacencyList = gt.AdjacencyList(nodes, edges)
+    adjacencyList = gt.Graph(nodes, edges)
     print(nodes)
     print(edges)
     print(adjacencyList)
