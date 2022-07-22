@@ -12,19 +12,45 @@ class Edge:
         return f'Edge[({self.start}->{self.end})({self.label})]'
 
     def __ge__(self, other):
-        pass
+        if self.start >= other.start:
+            return True
+        else:
+            if self.end >= other.end:
+                return True
+
+        return False
 
     def __le__(self, other):
-        pass
+        if self.start <= other.start:
+            return True
+        else:
+            if self.end <= other.end:
+                return True
+
+        return False
 
     def __gt__(self, other):
-        pass
+        if self.start > other.start:
+            return True
+        else:
+            if self.end > other.end:
+                return True
+
+        return False
 
     def __lt__(self, other):
-        pass
+        if self.start < other.start:
+            return True
+        else:
+            if self.end < other.end:
+                return True
+
+        return False
 
     def __ne__(self, other):
-        pass
+        tof = self.start == other.start and self.end == other.end and self.label == other.label
+        return False if tof else True
 
     def __eq__(self, other):
-        pass
+        tof = self.start == other.start and self.end == other.end and self.label == other.label
+        return True if tof else False
