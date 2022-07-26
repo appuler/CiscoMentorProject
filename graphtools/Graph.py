@@ -14,6 +14,11 @@ class Graph:
         for edge in edges:
             self.adj_list[edge.start].append(edge)
 
+        self.nodes_copy = self.nodes.copy()
+        self.edges_copy = self.edges.copy()
+        self.copy = self.adj_list.copy()
+
+
     def __str__(self):
         return f'{self.adj_list}'
 
@@ -21,4 +26,46 @@ class Graph:
         return self.adj_list
 
     def order(self):
-        pass
+        for i in self.adj_list.keys():
+            self.adj_list[i].sort()
+
+    def compare(self, other):
+
+        nodes_copy = self.nodes.copy()
+        edges_copy = self.edges.copy()
+        other_ncopy = other.nodes.copy()
+        other_ecopy = other.edges.copy()
+
+        if other.nodes != self.nodes:
+            a = set(self.nodes)
+            b = set(other.nodes)
+            for i in list(a.difference(b)):
+                i.mark = "red"
+
+            for i in list(b.difference(a)):
+                i.mark = "yellow"
+
+        for i in self.edges:
+            if i not in other.edges:
+                i.mark = "red"
+
+        for i in other.edges:
+            if i not in self.edges:
+                i.mark = "yellow"
+
+        for i in self.nodes:
+            print(i, i.mark)
+        for i in other.nodes:
+            print(i, i.mark)
+        for i in self.edges:
+            print(i, i.mark)
+        for i in other.edges:
+            print(i, i.mark)
+
+
+
+
+
+
+
+

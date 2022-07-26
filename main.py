@@ -2,7 +2,8 @@ import graphviz
 import pydotplus
 import graphtools as gt
 
-base_graph = pydotplus.graph_from_dot_file("test_files/btman_18897.dot")
+base_graph = pydotplus.graph_from_dot_file("test_files/btman_18903.dot")
+second_graph = pydotplus.graph_from_dot_file("test_files/btman_18897.dot")
 
 
 def create_node_list(graph):
@@ -29,10 +30,13 @@ def create_edge_list(graph):
 def main():
     nodes = create_node_list(base_graph)
     edges = create_edge_list(base_graph)
-    adjacencyList = gt.Graph(nodes, edges)
-    print(nodes)
-    print(edges)
-    print(adjacencyList)
+    al1 = gt.Graph(nodes, edges)
+    nodes2 = create_node_list(second_graph)
+    edges2 = create_edge_list(second_graph)
+    al2 = gt.Graph(nodes2, edges2)
+    print(al1, "\n", al2)
+    al1.compare(al2)
+
 
 
 if __name__ == '__main__':

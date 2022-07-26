@@ -4,6 +4,7 @@ class Edge:
         self.start = start
         self.end = end
         self.label = label
+        self.mark = "black"
 
     def __str__(self):
         return f'{self.start}->{self.end}'
@@ -48,9 +49,15 @@ class Edge:
         return False
 
     def __ne__(self, other):
-        tof = self.start == other.start and self.end == other.end and self.label == other.label
+        tof = self.start == other.start and self.end == other.end
         return False if tof else True
 
     def __eq__(self, other):
-        tof = self.start == other.start and self.end == other.end and self.label == other.label
+        tof = self.start == other.start and self.end == other.end
         return True if tof else False
+
+    def __hash__(self):
+        return hash((self.start, self.end))
+
+
+
