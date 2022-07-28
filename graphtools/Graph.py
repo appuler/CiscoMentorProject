@@ -31,37 +31,34 @@ class Graph:
 
     def compare(self, other):
 
-        nodes_copy = self.nodes.copy()
-        edges_copy = self.edges.copy()
-        other_ncopy = other.nodes.copy()
-        other_ecopy = other.edges.copy()
+        nodes = self.nodes.copy()
+        edges = self.edges.copy()
+        other_nodes = other.nodes.copy()
+        other_edges = other.edges.copy()
 
-        if other.nodes != self.nodes:
-            a = set(self.nodes)
-            b = set(other.nodes)
+        if other_nodes != nodes:
+            a = set(nodes)
+            b = set(other_nodes)
             for i in list(a.difference(b)):
                 i.mark = "red"
 
             for i in list(b.difference(a)):
-                i.mark = "yellow"
+                i.mark = "green"
 
-        for i in self.edges:
-            if i not in other.edges:
+        for i in edges:
+            if i not in other_edges:
                 i.mark = "red"
 
-        for i in other.edges:
-            if i not in self.edges:
-                i.mark = "yellow"
+        for i in other_edges:
+            if i not in edges:
+                i.mark = "green"
 
-        for i in self.nodes:
-            print(i, i.mark)
-        for i in other.nodes:
-            print(i, i.mark)
-        for i in self.edges:
-            print(i, i.mark)
-        for i in other.edges:
-            print(i, i.mark)
+        a = set(nodes)
+        b = set(edges)
+        c = set(other_nodes)
+        d = set(other_edges)
 
+        return Graph(list(a.union(c)), list(b.union(d)))
 
 
 
